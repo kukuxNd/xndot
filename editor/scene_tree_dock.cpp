@@ -695,10 +695,10 @@ void SceneTreeDock::_tool_selected(int p_tool, bool p_confirm_override) {
 			}
 		} break;
 		case TOOL_PASTE: {
-			paste_nodes(false);
+			paste_nodes(true); //黏贴也作为兄弟节点
 		} break;
 		case TOOL_PASTE_AS_SIBLING: {
-			paste_nodes(true);
+			paste_nodes(true); 
 		} break;
 		case TOOL_REPLACE: {
 			if (!profile_allow_editing) {
