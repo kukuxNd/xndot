@@ -72,13 +72,14 @@ void __print_line(const String &p_string) {
 	if (!CoreGlobals::print_line_enabled) {
 		return;
 	}
-
-	OS::get_singleton()->print("%s\n", p_string.utf8().get_data());
+	OS::DateTime dt = OS::get_singleton()->get_datetime(false);
+	String tmp = vformat("xDd %d:%d:%d:", dt.hour, dt.minute, dt.second) + p_string;
+	OS::get_singleton()->print("%s\n", tmp.utf8().get_data());
 
 	_global_lock();
 	PrintHandlerList *l = print_handler_list;
 	while (l) {
-		l->printfunc(l->userdata, p_string, false, false);
+		l->printfunc(l->userdata, tmp, false, false);
 		l = l->next;
 	}
 
