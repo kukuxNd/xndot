@@ -34,7 +34,7 @@ def make_splash_editor(target, source, env):
         g.write("#define BOOT_SPLASH_EDITOR_H\n")
         # The editor splash background color is taken from the default editor theme's background color.
         # This helps achieve a visually "smoother" transition between the splash screen and the editor.
-        g.write("static const Color boot_splash_editor_bg_color = Color(0.125, 0.145, 0.192);\n")
+        g.write("static const Color boot_splash_editor_bg_color = Color(0, 0, 0);\n")
         g.write("static const unsigned char boot_splash_editor_png[] = {\n")
         for i in range(len(buf)):
             g.write(str(buf[i]) + ",\n")
